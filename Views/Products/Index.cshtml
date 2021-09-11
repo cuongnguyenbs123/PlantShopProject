@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+    <table class="table table-sm table-striped table-hover"
+           id="cases"
+           style="width: 100%">
+        <thead>
+            <tr id="list-header">
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm </th>
+                <th scope="col">Giá sản phẩm</th>
+                <th scope="col">Hình ảnh</th>
+                <th scope="col">Giảm giá</th>
+                <th scope="col">Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+          @foreach (var products in ViewBag.data)
+                {
+            <tr>
+                <td>@products.id</td>
+                <td>@products.name</td>
+                <td>@products.price</td>
+                <td><img src="@products.img" alt="Alternate Text" width="100" height="100" style="object-fit:contain" /></td>
+                <td>@products.sortOut</td>
+                <td>@products.total</td>
+                <td><a href="@Url.Action("Put","Products",new {id=@products._id})"  class="btn btn-info">Sửa</a></td>
+                <td><a href="@Url.Action("Delete","Products",new {id=@products._id})"  class="btn btn-danger">Xóa</a></td>
+            </tr>
+                }
+        </tbody>
+    </table>
+<script>
+   
+</script>
+

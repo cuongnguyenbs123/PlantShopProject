@@ -1,0 +1,98 @@
+﻿@model AppBanDoDienTu.Models.mvcProductsModel
+
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Thêm mới sản phẩm</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+       <p class="control-label col-md-2">Mã sản phẩm :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id)
+            @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p class="control-label col-md-2">Tên sản phẩm :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Mô tả :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Giá sản phẩm :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Hình ảnh :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.img)
+            @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Loại sản phẩm :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sortOut)
+            @Html.ValidationMessageFor(model => model.sortOut, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Số lượng :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.total)
+            @Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Giảm giá :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.promo)
+            @Html.ValidationMessageFor(model => model.promo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p class="control-label col-md-2">Mã nhà sản xuất :</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id_producer)
+            @Html.ValidationMessageFor(model => model.id_producer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm mới"  class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>
